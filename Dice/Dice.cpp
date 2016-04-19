@@ -11,6 +11,7 @@
 	TODO:	Restrict size of arguments to avoid excessive memory usage (measured 500MB with 6 by 6)
 	TODO:	Improve memory efficiency.																*/
 
+//#define NO_VC															//Uncomment to enable compatibility with other compilers.
 #include "Functions.hpp"
 
 using namespace std;
@@ -18,7 +19,11 @@ using namespace std;
 typedef unsigned short int usi;
 typedef unsigned short int cnt;
 
-int _tmain(int argc, _TCHAR* argv[])
+#ifndef NO_VC
+int _tmain (int argc, _TCHAR* argv[])
+#else
+int main (int argc, char* argv)
+#endif
 {
 	unsigned		cal = 0,											//Counts the total permutations.
 					cun = 0;											//Counts the total unique permutations.

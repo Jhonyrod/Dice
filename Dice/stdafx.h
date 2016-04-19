@@ -4,9 +4,11 @@
 
 #pragma once
 
+#ifndef NO_VC
 #include "targetver.h"
+#include <tchar.h>
+#endif
 
 #include <stdio.h>
-#include <tchar.h>
 #include <iostream>
 #include <vector>

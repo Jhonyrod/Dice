@@ -1,5 +1,16 @@
 // Dice.cpp : Defines the entry point for the console application.
 
+/*	This program asks for a number of dice and their number of sides.
+	Given those parameters it calculates the relative probability of throwing a certain number
+	(which is limited by the parameters themselves).
+	It also calculates the probability of each unique permutation, for example, using three D6s
+	and throwing a 5: the probability of {3,1,1} and {2,2,1}.
+
+	TODO:	Output to a file.
+	TODO:	use command line arguments instead of cin.
+	TODO:	Restrict size of arguments to avoid excessive memory usage (measured 500MB with 6 by 6)
+	TODO:	Improve memory efficiency.																*/
+
 #include "Functions.hpp"
 
 using namespace std;
@@ -9,7 +20,7 @@ typedef unsigned short int cnt;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	unsigned int	cal = 0,											//Counts the total permutations.
+	unsigned		cal = 0,											//Counts the total permutations.
 					cun = 0;											//Counts the total unique permutations.
 	usi				ndice = 0,											//Will hold the number of dice.
 					sides = 0;											//Will hold the number of sides of each dice.
@@ -28,7 +39,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	All = new vector<usi*>[ndice*(sides - 1) + 1];						//Allocates memory for All and Uni.
 	Uni = new vector<usi*>[ndice*(sides - 1) + 1];
 
-	func::Fill(All, Uni, sides, ndice, new vector<unsigned int>);
+	func::Fill(All, Uni, sides, ndice, new vector<usi>);
 
 	for (cnt i = 0; i <= ndice*(sides - 1); i++)						//Run through all the possible sums.
 	{

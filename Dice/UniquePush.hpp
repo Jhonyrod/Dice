@@ -10,7 +10,7 @@ namespace func
 		@param size	Length of rhs, and consequently, lhs[i].
 		@return		Number of matches found.
 	 */
-	template <typename Type> usi UniquePush (std::vector<Type*> &lhs, const Type rhs[], const unsigned int size)
+	template <typename Type> usi UniquePush (std::vector<Type*> &lhs, const Type rhs[], const usi size)
 	{
 		usi tal = 0;								//Number of matches found.
 

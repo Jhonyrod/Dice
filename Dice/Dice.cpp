@@ -11,19 +11,19 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	usi cal = 0,														//Counts the total permutations.
 		cun = 0;														//Counts the total unique permutations.
-	/*const*/usi	ndice = 3,											//Will hold the number of dice.
-					sides = 6;											//Will hold the number of sides of each dice.
+	usi	ndice = 0,														//Will hold the number of dice.
+		sides = 0;														//Will hold the number of sides of each dice.
 
 	vector<usi*>	*All,												//Will hold all the permutations.
 					*Uni;												//Will hold the unique permutation array.
-	//vector <usi*>	All[ndice*(sides - 1) + 1],
-	//				Uni[ndice*(sides - 1) + 1];
 
-	cout	<< "Enter the number of dice, followed by their number of faces" << endl;
-	cin		>> ndice >> sides;
+	cout << "Enter the number of dice, followed by their number of faces..." << endl;
+	do
+		cin >> ndice >> sides;
+	while (ndice == 0 || sides == 0);
 
-	All = new vector<usi*>[ndice*(sides - 1) + 1] {nullptr};			//Allocates memory for All and Uni.
-	Uni = new vector<usi*>[ndice*(sides - 1) + 1] {nullptr};
+	All = new vector<usi*>[ndice*(sides - 1) + 1];						//Allocates memory for All and Uni.
+	Uni = new vector<usi*>[ndice*(sides - 1) + 1];
 
 	func::Fill(All, Uni, sides, ndice, new vector<usi>);
 

@@ -1,6 +1,6 @@
 #include "Fill.hpp"
 
-void func::Fill(std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth, std::vector<usi>* iarr)
+void func::Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth, std::vector<usi>* iarr)
 {
 	if (depth == 0)
 	{

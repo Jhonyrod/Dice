@@ -10,7 +10,7 @@ namespace func
 		@param size	Length of rhs, and consequently, lhs[i].
 		@return		Number of matches found.
 	 */
-	template <typename Type> usi UniquePush (std::vector<Type*> &lhs, const Type rhs[], const usi size)
+	template <typename Type> usi UniquePush (std::vector<Type*> &lhs, const Type rhs[], const unsigned int size)
 	{
 		usi tal = 0;								//Number of matches found.
 
@@ -26,6 +26,7 @@ namespace func
 			Type *res = new Type[size+1] {0};
 			for (usi i = 0; i < size; i++)
 				res[i] = rhs[i];					//Copy rhs to res.
+			res[size] = 1;
 			lhs.push_back(res);						//If no matches were found then insert the new permutation into lhs.
 		}
 

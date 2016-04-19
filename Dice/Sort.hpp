@@ -13,10 +13,9 @@ namespace func
 		if (size == 1)						//If the array only has one element then return the array itself.
 			return new Type{ param[0] };
 
-
 		usi		chi = 0,					//Counts the elements of param higher than or equal to avg.
 				clo = 0;					//Same as chi but for the lower side.
-		Type	avg = Type(),				//Average of all the elements of param.
+		Type	avg = Type(0),				//Average of all the elements of param.
 				*hi,						//Stores all param elements higher than avg.
 				*shi,						//Sorted version of hi.
 				*lo,						//Same as hi, but for the lower side.
@@ -32,6 +31,14 @@ namespace func
 				clo++;
 			else
 				chi++;
+
+		if (chi == size)					//If chi is equal to size that means that all the elements
+		{									//are equal to (or greater than, but that wouldn't make sense)
+			res = new Type[size];			//avg, so the array is copied verbatim.
+			for (usi i = 0; i < size; i++)
+				res[i] = param[i];
+			return res;
+		}
 
 		if (chi > 0)
 			hi = new Type[chi]{ 0 };		//Now that the size is known, hi and lo are created.

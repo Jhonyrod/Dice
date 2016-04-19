@@ -9,23 +9,26 @@ typedef unsigned short int cnt;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	usi cal = 0,														//Counts the total permutations.
-		cun = 0;														//Counts the total unique permutations.
-	usi	ndice = 0,														//Will hold the number of dice.
-		sides = 0;														//Will hold the number of sides of each dice.
+	unsigned int	cal = 0,											//Counts the total permutations.
+					cun = 0;											//Counts the total unique permutations.
+	usi				ndice = 0,											//Will hold the number of dice.
+					sides = 0;											//Will hold the number of sides of each dice.
 
 	vector<usi*>	*All,												//Will hold all the permutations.
 					*Uni;												//Will hold the unique permutation array.
 
-	cout << "Enter the number of dice, followed by their number of faces..." << endl;
+	cout << "Enter the number of dice, followed by their number of faces...\n";
 	do
+	{
 		cin >> ndice >> sides;
-	while (ndice == 0 || sides == 0);
+		if (ndice*sides == 0)
+			cout << "\nCome again?...\n";
+	} while (ndice*sides == 0);
 
 	All = new vector<usi*>[ndice*(sides - 1) + 1];						//Allocates memory for All and Uni.
 	Uni = new vector<usi*>[ndice*(sides - 1) + 1];
 
-	func::Fill(All, Uni, sides, ndice, new vector<usi>);
+	func::Fill(All, Uni, sides, ndice, new vector<unsigned int>);
 
 	for (cnt i = 0; i <= ndice*(sides - 1); i++)						//Run through all the possible sums.
 	{
@@ -35,7 +38,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "\nThere's a total of "			<< All[i].size()	<<
 				"\tways to sum "				<< i + ndice		<<	//i+ndice is there in order to show the correct sum from the dice as, for simplistic reasons, the "dice" in this code only run from 0 to sides.
 				",\thowever, there are only "	<< Uni[i].size()	<<
-				" unique ways, which are:\n";
+				"\tunique ways, which are:\n";
 
 		for (cnt j = 0; j<Uni[i].size(); j++)							//Run trough all possible permutatios
 		{
@@ -50,7 +53,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		}																//Displays all the unique permutations in human readable form. 
 	}
 
-	cout << "\nGiving us " << cal << " total permutations or " << cun << " unique permutations.";
+	cout << "\nGiving us " << cal << " total permutations or " << cun << " unique permutations." << endl;
 
 	return 0;
 }

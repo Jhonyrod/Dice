@@ -15,7 +15,7 @@ namespace func
 		usi tal = 0;								//Number of matches found.
 
 		for (usi i = 0; i < lhs.size(); i++)
-			if (!PICompare(lhs[i], rhs, size))
+			if (PICompare(lhs[i], rhs, size))
 			{
 				lhs[i][size]+=1;					//If a match is found increase the match counter in the array by one.
 				tal++;								//Increase by one the number of matches found every time one is... well, found.

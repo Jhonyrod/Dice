@@ -15,8 +15,8 @@ namespace func
 
 		usi		chi = 0,					//Counts the elements of param higher than or equal to avg.
 				clo = 0;					//Same as chi but for the lower side.
-		Type	avg = Type(0),				//Average of all the elements of param.
-				*hi,						//Stores all param elements higher than avg.
+		double	avg = 0;					//Average of all the elements of param.
+		Type	*hi,						//Stores all param elements higher than avg.
 				*shi,						//Sorted version of hi.
 				*lo,						//Same as hi, but for the lower side.
 				*slo,						//Sorted version of lo.

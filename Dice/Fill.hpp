@@ -17,5 +17,5 @@ namespace func
 		@param depthThe number of elements of each permutation.
 		@param iarr	Holds the history of all the indexes that the function has already looped through.
 	*/
-	void Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth, std::vector<unsigned int> *iarr);
+	void Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth, std::vector<usi> *iarr);
 }

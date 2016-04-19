@@ -1,11 +1,11 @@
 #include "Fill.hpp"
 
-void func::Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth, std::vector<unsigned int>* iarr)
+void func::Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth, std::vector<usi>* iarr)
 {
 	if (depth == 0)											//If at the end of the chain...
 	{
-		usi cnt = 0,										//Will hold the sum of all the elements of iarr.
-			*perm = new usi[iarr->size()];					//Create a new array with space for each element of iarr.
+		unsigned	cnt = 0;								//Will hold the sum of all the elements of iarr.
+		usi			*perm = new usi[iarr->size()];			//Create a new array with space for each element of iarr.
 		for (usi i = 0; i < iarr->size(); i++)				//Iterate through iarr.
 			cnt += perm[i] = iarr->at(iarr->size() - i - 1);//Copy the ith element of iarr to the ith element of perm and sum it to cnt.
 		All[cnt].push_back(perm);							//Push the new permutation to the corresponding index.

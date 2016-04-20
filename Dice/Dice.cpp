@@ -25,8 +25,8 @@ int _tmain (int argc, _TCHAR* argv[])
 int main (int argc, char* argv)
 #endif
 {
-	unsigned		cal = 0,											//Counts the total permutations.
-					cun = 0;											//Counts the total unique permutations.
+	unsigned long	cal = 0;											//Counts the total permutations.
+	unsigned		cun = 0;											//Counts the total unique permutations.
 	usi				ndice = 0,											//Will hold the number of dice.
 					sides = 0;											//Will hold the number of sides of each dice.
 
@@ -44,7 +44,7 @@ int main (int argc, char* argv)
 	All = new vector<usi*>[ndice*(sides - 1) + 1];						//Allocates memory for All and Uni.
 	Uni = new vector<usi*>[ndice*(sides - 1) + 1];
 
-	func::Fill(All, Uni, sides, ndice, new vector<usi>);
+	func::Fill(All, Uni, sides, ndice);
 
 	for (cnt i = 0; i <= ndice*(sides - 1); i++)						//Run through all the possible sums.
 	{

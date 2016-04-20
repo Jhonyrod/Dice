@@ -19,3 +19,10 @@ void func::Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi ste
 			iarr->pop_back();								//Once done pop the last index from iarr.
 		}
 }
+
+void func::Fill(std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth)
+{
+	std::vector<usi> *iarr = new std::vector<usi>;
+	Fill(All, Uni, step, depth, iarr);
+	delete iarr;
+}

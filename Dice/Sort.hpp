@@ -54,11 +54,17 @@ namespace func
 				hi[chi++] = param[i];
 
 		if (chi > 0)
+		{
+			shi = new Type[chi];
 			shi = nQSort(hi, chi);			//Creating new arrays with their elements sorted and deleting the unsorted ones.
+		}
 		delete[] hi;
 
 		if (clo > 0)
+		{
+			slo = new Type[clo];
 			slo = nQSort(lo, clo);
+		}
 		delete[] lo;
 
 		res = new Type[size]{ 0 };
@@ -70,5 +76,10 @@ namespace func
 		delete[] shi, slo;
 
 		return res;
+	}
+
+	template <typename Type> void nQSort(const Type param[], Type sto[], const usi size)
+	{
+		sto = nQSort(param, size);
 	}
 }

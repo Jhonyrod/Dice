@@ -8,8 +8,11 @@ namespace func
 	template <typename Type> bool PICompare (const Type lhs[], const Type rhs[], const usi size)
 	{
 		usi tal = 0;
-		Type	*slhs = nQSort(lhs, size),	//Creates sorted versions of lhs and rhs.
-				*srhs = nQSort(rhs, size);
+		Type	*slhs = new Type[size],		//Allocates memory.
+				*srhs = new Type[size];
+
+		nQSort(lhs, slhs, size);			//Creates sorted versions of lhs and rhs.
+		nQSort(rhs, srhs, size);
 
 		for (usi i = 0; i < size; i++)		//Iterates through the sorted arrays and..
 			if (slhs[i] == srhs[i])			//If a match is found at the ith place...

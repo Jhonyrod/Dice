@@ -3,7 +3,7 @@
 
 namespace func
 {
-	typedef unsigned short int usi;
+	typedef unsigned short usi;
 }
 
 #include "stdafx.h"

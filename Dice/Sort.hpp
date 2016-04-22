@@ -11,7 +11,7 @@ namespace func
 	template <typename Type> Type* nQSort (const Type param[], const usi size)
 	{
 		if (size == 1)						//If the array only has one element then return the array itself.
-			return new Type{ param[0] };
+			return new Type {param[0]};
 
 		usi		chi = 0,					//Counts the elements of param higher than or equal to avg.
 				clo = 0;					//Same as chi but for the lower side.
@@ -41,9 +41,9 @@ namespace func
 		}
 
 		if (chi > 0)
-			hi = new Type[chi]{ 0 };		//Now that the size is known, hi and lo are created.
+			hi = new Type[chi];				//Now that the size is known, hi and lo are created.
 		if (clo > 0)
-			lo = new Type[clo]{ 0 };
+			lo = new Type[clo];
 
 		chi = clo = 0;						//chi and clo are reset.
 
@@ -54,31 +54,25 @@ namespace func
 				hi[chi++] = param[i];
 
 		if (chi > 0)
-		{
-			shi = new Type[chi];
 			shi = nQSort(hi, chi);			//Creating new arrays with their elements sorted and deleting the unsorted ones.
-		}
 		delete[] hi;
 
 		if (clo > 0)
-		{
-			slo = new Type[clo];
 			slo = nQSort(lo, clo);
-		}
 		delete[] lo;
 
 		res = new Type[size]{ 0 };
 		for (usi i = 0;i < chi; i++)
 			res[i] = shi[i];
+		delete[] shi;
 		for (auto i = chi; i < size; i++)
 			res[i] = slo[i - chi];
-
-		delete[] shi, slo;
+		delete[] slo;
 
 		return res;
 	}
 
-	template <typename Type> void nQSort(const Type param[], Type sto[], const usi size)
+	template <typename Type> void nQSort (const Type param[], Type sto[], const usi size)
 	{
 		sto = nQSort(param, size);
 	}

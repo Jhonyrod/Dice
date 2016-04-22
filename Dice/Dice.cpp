@@ -7,7 +7,7 @@
 	and throwing a 5: the probability of {3,1,1} and {2,2,1}.
 
 	TODO:	Output to a file.
-	TODO:	use command line arguments instead of cin.
+	TODO:	Use command line arguments instead of cin.
 	TODO:	Restrict size of arguments to avoid excessive memory usage (measured 500MB with 6 by 6)
 	TODO:	Improve memory efficiency.																*/
 
@@ -16,8 +16,8 @@
 
 using namespace std;
 
-typedef unsigned short int usi;
-typedef unsigned short int cnt;
+typedef unsigned short usi;
+typedef unsigned short cnt;
 
 #ifndef NO_VC
 int _tmain (int argc, _TCHAR* argv[])

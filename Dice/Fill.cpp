@@ -20,7 +20,7 @@ void func::Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi ste
 		}
 }
 
-void func::Fill(std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth)
+void func::Fill (std::vector<usi*> All[], std::vector<usi*> Uni[], const usi step, const usi depth)
 {
 	std::vector<usi> *iarr = new std::vector<usi>;
 	Fill(All, Uni, step, depth, iarr);

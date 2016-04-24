@@ -25,13 +25,12 @@ int _tmain (int argc, _TCHAR* argv[])
 int main (int argc, char* argv)
 #endif
 {
-	unsigned		cal = 0,											//Counts the total permutations.
-					cun = 0;											//Counts the total unique permutations.
-	usi				ndice = 0,											//Will hold the number of dice.
-					sides = 0;											//Will hold the number of sides of each dice.
-
-	vector<usi*>	*All,												//Will hold all the permutations.
-					*Uni;												//Will hold the unique permutation array.
+	unsigned					cal   = 0,								//Counts the total permutations.
+								cun   = 0;								//Counts the total unique permutations.
+	usi							ndice = 0,								//Will hold the number of dice.
+								sides = 0;								//Will hold the number of sides of each dice.
+	unique_ptr<vector<usi*>[]>	All,									//Will hold all the permutations.
+								Uni;									//Will hold the unique permutation array.
 
 	cout << "Enter the number of dice, followed by their number of faces...\n";
 	do
@@ -41,10 +40,10 @@ int main (int argc, char* argv)
 			cout << "\nCome again?...\n";
 	} while (ndice*sides == 0);
 
-	All = new vector<usi*>[ndice*(sides - 1) + 1];						//Allocates memory for All and Uni.
-	Uni = new vector<usi*>[ndice*(sides - 1) + 1];
+	All = make_unique<vector<usi*>[]>(ndice*(sides - 1) + 1);			//Allocates memory for All and Uni.
+	Uni = make_unique<vector<usi*>[]>(ndice*(sides - 1) + 1);
 
-	func::Fill(All, Uni, sides, ndice, new vector<usi>);
+	func::Fill(All, Uni, sides, ndice);
 
 	for (cnt i = 0; i <= ndice*(sides - 1); i++)						//Run through all the possible sums.
 	{
